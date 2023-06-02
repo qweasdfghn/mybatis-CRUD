@@ -1,0 +1,22 @@
+package com.greedy.section01.remixconfig.common;
+
+import java.util.List;
+
+import com.greedy.section01.remixconfig.DTO.PostDTO;
+
+public class PrintResult {
+
+	public void printPostLost(List<PostDTO> postList) {
+		for(PostDTO post : postList) {
+			System.out.println(post);
+		}
+		
+	}
+
+	public void printErrorMessage(String string) {
+		if(string.equals("findAllPosts")) {
+			System.out.println("조회를 할 수없습니다");
+		}
+	}
+
+}

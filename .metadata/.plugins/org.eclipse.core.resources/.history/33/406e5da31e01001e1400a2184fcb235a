@@ -1,0 +1,32 @@
+package com.greedy.section01;
+
+import java.util.Scanner;
+
+import com.greedy.section01.remixconfig.controller.PostController;
+
+public class Application01 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		PostController postController = new PostController();
+		
+		do {
+			System.out.println("블로그 관리");
+			System.out.println("1. 전체 글 조회하기");
+			System.out.println("2. 단일 글 조회하기");
+			System.out.println("3. 글 수정하기");
+			System.out.println("4. 글 삭제하기(비활성화)");
+			System.out.println("번호를 입력해 주세요");
+			int no = sc.nextInt();
+			
+			switch (no) {
+			case 1: postController.findAllPost();
+				break;
+			}
+		}while(true);
+		
+		
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;mybatis-CRUD/src/com/greedy/section01/config/xml&apos;" deleteContents="false" description="Delete resource &apos;mybatis-CRUD/src/com/greedy/section01/config/xml&apos;" element1="/mybatis-CRUD/src/com/greedy/section01/config/xml" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1685686826671"/>
+</session>

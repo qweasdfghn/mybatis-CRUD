@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- 마이바티스 홈페이지 - 시작하기 - 매핑된 sql구문 살펴보기 -->
+  
+  <mapper namespace = "com.greedy.section01.remixconfig.dao.PostDAO">
+  
+  <resultMap id="postResultMap" type="com.greedy.section01.remixconfig.DTO.PostDTO">
+  <id property="postNo" column="POST_NO"/> <!-- 프라이머리키는 처음에 작성해주고 나머지는 아래와 같이 작성 -->
+ 	 <result property="fileNo" column="FILE_NO"/>
+  	<result property="fileTitle" column="FILE_TITLE"/>
+  	<result property="fileContent" column="FILE_CONTENT"/>
+  	<result property="fileTime" column="FILE_TIME"/>
+  	<result property="fileState" column="FILE_STATE"/>
+  	<result property="cateNo" column="CATE_NO"/>
+  	<result property="blogNo" column="BLOG_NO"/>
+  </resultMap>
+  
+  <select id="selectAllPost" resultMap="postResultMap"> <!-- 쿼리 작성 -->
+  SELECT
+       *
+    FROM POST
+   WHERE FILE_STATE = '활성화'
+  </select>
+  
+   <select id="selectPost" resultMap="postResultMap">
+   SELECT
+       *
+  FROM POST
+ WHERE POST_NO = #{ code } and FILE_STATE = '활성화'
+   
+   </select>
+   
+   <update id="modifyPost" parameterType="com.greedy.section01.remixconfig.DTO.ModifyPostDTO">
+   UPDATE POST SET FILE_CONTENT = #{ fileContent }
+ 	WHERE POST_NO = #{ postNo }
+   </update>
+   
+   <update id="deletePost">
+   UPDATE POST SET FILE_STATE = '비활성화'
+ WHERE POST_NO = #{ code }
+   
+   </update>
+   
+   
+  
+  
+  
+  </mapper>
+  
+  
+ 
