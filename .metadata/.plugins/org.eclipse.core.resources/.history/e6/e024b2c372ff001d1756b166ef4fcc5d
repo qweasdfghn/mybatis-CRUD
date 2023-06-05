@@ -1,0 +1,33 @@
+package com.greedy.section01.javaconfig;
+
+import org.apache.ibatis.datasource.pooled.PooledDataSource;
+import org.apache.ibatis.datasource.pooled.PooledDataSourceFactory;
+import org.apache.ibatis.mapping.Environment;
+import org.apache.ibatis.transaction.jdbc.JdbcTransaction;
+import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
+
+public class Appliaction01 {
+	
+	private final static String DRIVER = "oracle.jdbc.driver.OracleDriver";
+	private final static String URL = "jbdc.oracle:thin:@localhost:1521:xe";
+	private final static String USER = "C##EMPLOYEE";
+	private final static String PASSWORD = "EMPLOYEE";
+
+	public static void main(String[] args) {
+		
+		/* DB접속에 관한 환경설정
+		 * --------------------
+		 * jdbcTranscationFactory : 수동커밋
+		 * ManagedTransactionFactory : 자동커밋
+		 * -------------------------
+		 * PolledDataSource : ConnectionPool 사용
+		 * UnpooledDataSource : ConnectionPoll 미사용
+		 * ------------------------
+		 * */
+		
+		Environment environment = new Environment("dev",   //환경 정보이름
+				new JdbcTransactionFactory(), // 트랜젝션 매니저 종류 결정(JDBC OR MANAGED)
+				new PooledDataSource(DRIVER, URL,USER, PASSWORD)); // CONNECTIONPOLL 사용 유무 (POOLED OR UNER)
+	}
+
+}
